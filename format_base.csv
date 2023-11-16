@@ -1,0 +1,4 @@
+"colname","unit","format","description"
+
+"I_HI","K km s-1",".3e","Region-average HI 21cm line intensity (PHANGS-HI)"
+"e_I_HI","K km s-1",".1e","Stats error on region-average HI 21cm line intensity (PHANGS-HI)"
