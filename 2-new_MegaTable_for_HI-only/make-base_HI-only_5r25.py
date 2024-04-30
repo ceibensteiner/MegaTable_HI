@@ -10,7 +10,7 @@ from astropy.io import fits
 from astropy.table import Table, QTable
 
 
-sys.path.append('/Users/cosimaeibensteiner/Documents/GitHub/MegaTable/')
+sys.path.append('/Users/ceibenst/Documents/GitHub/MegaTable_HI')
 from mega_table.core import StatsTable
 from mega_table.table import TessellMegaTable, RadialMegaTable
 from mega_table.utils import nanaverage, nanrms, calc_pixel_per_beam
@@ -19,11 +19,11 @@ from mega_table.utils import nanaverage, nanrms, calc_pixel_per_beam
 
 # location of all relevant config files
 
-config_dir = Path('/Users/cosimaeibensteiner/Documents/GitHub/MegaTable_HI')
+config_dir = Path('/Users/ceibenst/Documents/GitHub/MegaTable_HI')
 #config_dir = Path('/data/kant/0/sun.1608/PHANGS/mega-tables/code')
 
 # location to save the output data tables
-work_dir = Path('/Users/cosimaeibensteiner/Desktop/home/PhD/1-Project/MEERKAT/scripts/0-data_base/Mega-Table_5r25')
+work_dir = Path('/Users/ceibenst/Desktop/home/1-Projects/MEERKAT/scripts/0-data_base/5-Mega-Table_v4p1_5r25')
 
 # logging setting
 logging = False
@@ -99,6 +99,29 @@ class PhangsBaseMegaTable(StatsTable):
         self[colname][low_snr_flag] = 0
         # self[colname_e][low_snr_flag] = np.nan
 
+    def calc_effective_line_width(
+            self, colname='line_width_effective', unit='km s-1',
+            I_HI=None, e_I_HI=None, HI_T_PEAK=None, snr_thresh=None):
+        self[colname] = (I_HI/(HI_T_PEAK*np.sqrt(2*np.pi))).to(unit)
+        # mask entries below S/N threshold
+        if snr_thresh is None:
+            snr_thresh = 3
+        low_snr_flag = (I_HI / e_I_HI < snr_thresh)
+        self[colname][low_snr_flag] = 0
+
+    def calc_mom2_line_width(
+            self, colname='line_width_mom2', unit='km s-1',
+            HI_MOM2=None, I_HI=None,e_I_HI=None, snr_thresh=None):
+        #assumed that sqrt(mom2) has been used in the PHANGS pipe to produce mom2 maps [CHECK]
+        #self[colname]= np.sqrt(HI_MOM2).to(unit)
+        self[colname]= HI_MOM2.to(unit)
+        # mask entries below S/N threshold
+        if snr_thresh is None:
+            snr_thresh = 3
+        low_snr_flag = (I_HI / e_I_HI < snr_thresh)
+        self[colname][low_snr_flag] = 0
+
+
 
 class PhangsBaseTessellMegaTable(
         TessellMegaTable, PhangsBaseMegaTable):
@@ -151,12 +174,50 @@ def add_raw_measurements_to_table(
         err_file = data_paths['PHANGS_HI_MeerKAT'].format(
             galaxy=gal_name, product='emom0',
             postfix_resolution='')
+        in_file_t = data_paths['PHANGS_HI_MeerKAT'].format(
+            galaxy=gal_name, product='tpeak',
+            postfix_resolution='')
+        err_file_t = data_paths['PHANGS_HI_MeerKAT'].format(
+                galaxy=gal_name, product='e_tpeak',
+                postfix_resolution='')
+        #--strict masks for mom2 and ew
+        in_file_2 = data_paths['PHANGS_HI_MeerKAT_strict'].format(
+            galaxy=gal_name, product='mom2',
+            postfix_resolution='')
+        err_file_2 = data_paths['PHANGS_HI_MeerKAT_strict'].format(
+                    galaxy=gal_name, product='emom2',
+                    postfix_resolution='')
+        in_file_ew = data_paths['PHANGS_HI_MeerKAT_strict'].format(
+            galaxy=gal_name, product='ew',
+            postfix_resolution='')
+        err_file_ew = data_paths['PHANGS_HI_MeerKAT_strict'].format(
+                    galaxy=gal_name, product='eew',
+                    postfix_resolution='')
+
         t.add_area_average_for_image(
             # column to save the output
-            colname='I_HI', unit='K km s-1',
-            colname_e="e_I_HI", unit_e='K km s-1',
+            colname='I_HI_MeerKAT', unit='K km s-1',
+            colname_e="e_I_HI_MeerKAT", unit_e='K km s-1',
             # input parameters
             img_file=in_file, err_file=err_file)
+        t.add_area_average_for_image(
+            # column to save the output
+            colname='HI_MeerKAT_T_PEAK', unit='K',
+            colname_e="e_HI_MeerKAT_T_PEAK", unit_e='K',
+            # input parameters
+            img_file=in_file_t, err_file=err_file_t)
+        t.add_area_average_for_image(
+            # column to save the output
+            colname='HI_MeerKAT_MOM2', unit='km s-1',
+            colname_e="e_HI_MeerKAT_MOM2", unit_e='km s-1',
+            # input parameters
+            img_file=in_file_2, err_file=err_file_2)
+        t.add_area_average_for_image(
+                    # column to save the output
+                    colname='HI_MeerKAT_EW', unit='km s-1',
+                    colname_e="e_HI_MeerKAT_EW", unit_e='km s-1',
+                    # input parameters
+                    img_file=in_file_ew, err_file=err_file_ew)
 
     #if verbose:
         print("  Add MeerKAT HI data from MHONGOOSE")
@@ -166,12 +227,26 @@ def add_raw_measurements_to_table(
         err_file = data_paths['MHONGOOSE_HI_MeerKAT'].format(
             galaxy=gal_name, product='emom0',
             postfix_resolution='')
+    #Erwin didn't provide the whole fits cube nor the mom2 maps (yet)?
+        #in_file_2 = data_paths['MHONGOOSE_HI_MeerKAT'].format(
+        #    galaxy=gal_name, product='mom2',
+        #    postfix_resolution='')
+        #err_file_2 = data_paths['MHONGOOSE_HI_MeerKAT'].format(
+        #    galaxy=gal_name, product='emom2',
+        #    postfix_resolution='')
+
         t.add_area_average_for_image(
             # column to save the output
-            colname='I_HI', unit='K km s-1',
-            colname_e="e_I_HI", unit_e='K km s-1',
+            colname='I_MeerKAT_HI', unit='K km s-1',
+            colname_e="e_I_MeerKAT_HI", unit_e='K km s-1',
             # input parameters
             img_file=in_file, err_file=err_file)
+        #t.add_area_average_for_image(
+        #    # column to save the output
+        #    colname='HI_MeerKAT_MOM2', unit='km s-1',
+        #    colname_e="e_HI_MeerKAT_MOM2", unit_e='km s-1',
+        #    # input parameters
+        #    img_file=in_file_2, err_file=err_file_2)
 
 
 
@@ -192,8 +267,23 @@ def calc_high_level_params_in_table(
         # columns to save the output
         colname="Sigma_atom_MeerKAT", colname_e="e_Sigma_atom_MeerKAT",
         # input parameters
-        I_HI=t['I_HI'], e_I_HI=t['e_I_HI'],
+        I_HI=t['I_MeerKAT_HI'], e_I_HI=t['e_I_MeerKAT_HI'],
         cosi=gal_cosi, snr_thresh=0.0)
+
+    # Atomic effective line width
+    if verbose:
+        print("  Calculate effective line width")
+    t.calc_effective_line_width(
+            colname='HI_line_width_effective',
+            I_HI=t['I_HI_MeerKAT'], e_I_HI=t['e_I_HI_MeerKAT'],
+            HI_T_PEAK=t['HI_MeerKAT_T_PEAK'], snr_thresh=0.0)
+
+    #if verbose:
+    #    print(" Calculate mom2 line width")
+    #t.calc_mom2_line_width(
+    #        colname='HI_line_width_mom2',
+    #        I_HI=t['I_HI_MeerKAT'], e_I_HI=t['e_I_HI_MeerKAT'],
+    #        HI_MOM2=t['HI_MeerKAT_MOM2'], snr_thresh=0.0)
 
 
 def build_tessell_base_table(

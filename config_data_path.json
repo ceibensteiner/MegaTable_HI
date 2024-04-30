@@ -1,7 +1,9 @@
 {
-    "PHANGS_sample_table": "/Users/cosimaeibensteiner/Documents/GitHub/MegaTable_HI/sample.ecsv",
+    "PHANGS_sample_table": "/Users/ceibenst/Documents/GitHub/MegaTable_HI/sample_rmol_paper.ecsv",
     "PHANGS_HI_MeerKAT":
-    "/Users/cosimaeibensteiner/Desktop/home/PhD/1-Project/MEERKAT/Data/PHANGS_sample_cycle0/{galaxy}_meerkat_hi21cm_pbcorr_zoom_native_k_broad_{product}.fits",
+    "/Users/ceibenst/Desktop/home/1-Projects/MEERKAT/Data/PHANGS_sample_cycle0/{galaxy}_meerkat_hi21cm_pbcorr_zoom_native_k_broad_{product}.fits",
+    "PHANGS_HI_MeerKAT_strict":
+    "/Users/ceibenst/Desktop/home/1-Projects/MEERKAT/Data/PHANGS_sample_cycle0/{galaxy}_meerkat_hi21cm_pbcorr_zoom_native_k_strict_{product}.fits",
     "MHONGOOSE_HI_MeerKAT":
-    "/Users/cosimaeibensteiner/Desktop/home/PhD/1-Project/MEERKAT/Data/for_MHONGOOSE_targets/{galaxy}_r05-{product}.fits"
+    "/Users/ceibenst/Desktop/home/1-Projects/MEERKAT/Data/for_MHONGOOSE_targets/{galaxy}_r05-{product}.fits"
 }

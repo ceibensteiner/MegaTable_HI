@@ -133,6 +133,52 @@ def stellar_mass_volume_density(Sigma_star, e_Sigma_star, radial_scale_lenght):
 
     return rho, rho_e
 
+def calc_dyn_eq_p(Sigma_star=None, radial_scale_lenght=None,
+                Sigma_mol=None, Sigma_atom=None, vdisp_atom_z=None, vdisp_mol_z=None,
+                e_Sigma_mol=None, e_Sigma_atom=None, e_Sigma_star=None):
+
+    rho,rho_e  = stellar_mass_volume_density(Sigma_star, e_Sigma_star, radial_scale_lenght)
+
+    if vdisp_atom_z is None:
+        vdisp_atom_z = 10 * u.Unit('km s-1')  # Leroy+08, Sun+20a
+    if vdisp_mol_z is None:
+        vdisp_mol_z = vdisp_atom_z  # Leroy+08
+
+    Sigma_gas = Sigma_atom + Sigma_mol
+    vdisp_gas_z = (  # Sun+20a Eq.14
+        Sigma_mol * vdisp_mol_z +
+        Sigma_atom * vdisp_atom_z) / Sigma_gas
+
+    vdisp_gas_z = vdisp_gas_z.to('km s-1')
+    print(vdisp_gas_z)
+    Sigma_gas = Sigma_gas.to(u.kg/u.m**2)
+    first_term = ((np.pi*const.G)/2)*Sigma_gas**2
+    second_term = Sigma_gas*np.sqrt(2*const.G*rho)*vdisp_gas_z
+    pressure = first_term+second_term
+
+    p = (pressure/const.k_B).to('K cm-3')
+
+    #calculate error
+    e_Sigma_gas = np.sqrt(e_Sigma_mol**2 + e_Sigma_atom**2)
+    e_Sigma_gas = e_Sigma_gas.to(u.kg/u.m**2)
+    e_stat = np.sqrt(
+            (np.pi * const.G * Sigma_gas +
+             vdisp_gas_z * np.sqrt(2 * const.G * rho))**2 *
+             e_Sigma_gas**2 +
+            (Sigma_gas * vdisp_gas_z *
+             np.sqrt(const.G / 2 / rho))**2 *
+            rho_e **2) / const.k_B
+    e_sys = 0.0
+    p_e = np.sqrt(e_stat**2 + e_sys**2).to('K cm-3')
+
+    return p, p_e
+
+
+
+
+
+
+
 
 def pde(Sigma_star, radial_scale_lenght, Sigma_mol, Sigma_atom, sigma_hi_z, e_Sigma_mol, e_Sigma_atom, e_Sigma_star):
     '''Parameters
@@ -146,8 +192,8 @@ def pde(Sigma_star, radial_scale_lenght, Sigma_mol, Sigma_atom, sigma_hi_z, e_Si
 
     rho,rho_e  = stellar_mass_volume_density(Sigma_star, e_Sigma_star, radial_scale_lenght)
 
-    vdisp_atom_z = sigma_hi_z * u.Unit('km s-1')  # Leroy+08, Sun+20a == 10 km/s
-    vdisp_mol_z = vdisp_atom_z  # Leroy+08
+    vdisp_atom_z = sigma_hi_z   # Leroy+08, Sun+20a == 10 km/s
+    vdisp_mol_z = sigma_hi_z  # Leroy+08
     Sigma_gas = Sigma_atom + Sigma_mol
 
     vdisp_gas_z = (  # Sun+20a Eq.14
@@ -161,11 +207,12 @@ def pde(Sigma_star, radial_scale_lenght, Sigma_mol, Sigma_atom, sigma_hi_z, e_Si
     second_term = Sigma_gas*np.sqrt(2*const.G*rho)*vdisp_gas_z
 
     pressure = first_term+second_term
-    #print(pressure)
+    print(pressure)
 
     #let's get it in units of K/cm-3 (dividing by k_B ==> in Jiayi's code for paper2022; different than in paper2020)
     unit = 'K cm-3'# unit is K cm-3 kB !!
     pressure = (pressure/const.k_B).to(unit)
+    print(pressure)
 
 
     #calculate error
@@ -183,3 +230,50 @@ def pde(Sigma_star, radial_scale_lenght, Sigma_mol, Sigma_atom, sigma_hi_z, e_Si
     pressure_e = np.sqrt(e_stat**2 + e_sys**2).to(unit_e)
 
     return pressure, pressure_e
+
+
+
+#--- varing vdisp
+def pde_varying(Sigma_star, radial_scale_lenght,
+                Sigma_mol, Sigma_atom, sigma_hi_z, sigma_mol_z,
+                e_Sigma_mol, e_Sigma_atom, e_Sigma_star):
+
+    unit='K cm-3',
+    unit_e='K cm-3'
+    vdisp_atom_z = sigma_hi_z.to('km s-1')
+    vdisp_mol_z = sigma_mol_z.to('km s-1')
+    #print(vdisp_atom_z)
+    #print(vdisp_mol_z)
+    Sigma_gas = Sigma_atom + Sigma_mol
+    rho,rho_e  = stellar_mass_volume_density(Sigma_star, e_Sigma_star, radial_scale_lenght)
+    vdisp_gas_z = (  # Sun+20a Eq.14
+            Sigma_mol * vdisp_mol_z +
+            Sigma_atom * vdisp_atom_z) / Sigma_gas
+    vdisp_gas_z = vdisp_gas_z.to('km s-1')
+
+    Sigma_gas = Sigma_gas.to(u.kg/u.m**2)
+
+    first_term = ((np.pi*const.G)/2)*Sigma_gas**2
+    second_term = Sigma_gas*np.sqrt(2*const.G*rho)*vdisp_gas_z
+
+    pressure = first_term+second_term
+
+    #let's get it in units of K/cm-3 (dividing by k_B ==> in Jiayi's code for paper2022; different than in paper2020)
+    unit = 'K cm-3'# unit is K cm-3 kB !!
+    pressure_ = (pressure/const.k_B).to(unit)
+
+    e_Sigma_gas = np.sqrt(e_Sigma_mol**2 + e_Sigma_atom**2)
+    e_Sigma_gas = e_Sigma_gas.to(u.kg/u.m**2)
+    e_stat = np.sqrt(
+            (np.pi * const.G * Sigma_gas +
+             vdisp_gas_z * np.sqrt(2 * const.G * rho))**2 *
+             e_Sigma_gas**2 +
+            (Sigma_gas * vdisp_gas_z *
+             np.sqrt(const.G / 2 / rho))**2 *
+            rho_e **2) / const.k_B
+    e_sys = 0.0
+    pressure_e_ = np.sqrt(e_stat**2 + e_sys**2).to(unit_e)
+    #unit = 'K cm-3'
+    #pressure_e = (pressure_e/const.k_B).to(unit)
+
+    return pressure_, pressure_e_

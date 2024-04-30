@@ -1,7 +1,7 @@
-from uplims_functions import *
+from uplims_functions_intensities import *
 
-p = '/Users/cosimaeibensteiner/Desktop/home/PhD/1-Project/MEERKAT/scripts/0-data_base/4-Mega-Table_v4p0/'
-base_out='/Users/cosimaeibensteiner/Desktop/home/PhD/1-Project/MEERKAT/scripts/0-data_base/4-Mega-Table_v4p0/'
+p = '/Users/ceibenst/Desktop/home/1-Projects/MEERKAT/scripts/0-data_base/4-Mega-Table_v4p0/'
+base_out='/Users/ceibenst/Desktop/home/1-Projects/MEERKAT/scripts/0-data_base/4-Mega-Table_v4p0/'
 
 file = 'NGC1512_base+MeerKAT+P-DE_hexagon_1p5kpc.ecsv'
 galaxyID = 'NGC1512'
