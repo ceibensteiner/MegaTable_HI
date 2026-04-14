@@ -1,0 +1,203 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: name, datatype: string}
+# - {name: pgc, datatype: int64}
+# - {name: alias, datatype: string}
+# - {name: survey_astrosat_status, datatype: string}
+# - {name: survey_astrosat_instrument, datatype: string}
+# - {name: survey_astrosat_notes, datatype: string}
+# - {name: survey_astrosat_references, datatype: string}
+# - {name: survey_galex_status, datatype: string}
+# - {name: survey_galex_instrument, datatype: string}
+# - {name: survey_galex_notes, datatype: string}
+# - {name: survey_galex_references, datatype: string}
+# - {name: survey_halpha_status, datatype: string}
+# - {name: survey_halpha_instrument, datatype: string}
+# - {name: survey_halpha_notes, datatype: string}
+# - {name: survey_halpha_references, datatype: string}
+# - {name: survey_muse_status, datatype: string}
+# - {name: survey_muse_instrument, datatype: string}
+# - {name: survey_muse_notes, datatype: string}
+# - {name: survey_muse_references, datatype: string}
+# - {name: survey_kcwi_status, datatype: string}
+# - {name: survey_kcwi_instrument, datatype: string}
+# - {name: survey_kcwi_notes, datatype: string}
+# - {name: survey_kcwi_references, datatype: string}
+# - {name: survey_sitelle_status, datatype: string}
+# - {name: survey_sitelle_instrument, datatype: string}
+# - {name: survey_sitelle_notes, datatype: string}
+# - {name: survey_sitelle_references, datatype: string}
+# - {name: survey_typhoon_status, datatype: string}
+# - {name: survey_typhoon_instrument, datatype: string}
+# - {name: survey_typhoon_notes, datatype: string}
+# - {name: survey_typhoon_references, datatype: string}
+# - {name: survey_hst_status, datatype: string}
+# - {name: survey_hst_instrument, datatype: string}
+# - {name: survey_hst_notes, datatype: string}
+# - {name: survey_hst_references, datatype: string}
+# - {name: survey_irac_status, datatype: string}
+# - {name: survey_irac_instrument, datatype: string}
+# - {name: survey_irac_notes, datatype: string}
+# - {name: survey_irac_references, datatype: string}
+# - {name: survey_mips_status, datatype: string}
+# - {name: survey_mips_instrument, datatype: string}
+# - {name: survey_mips_notes, datatype: string}
+# - {name: survey_mips_references, datatype: string}
+# - {name: survey_wise_status, datatype: string}
+# - {name: survey_wise_instrument, datatype: string}
+# - {name: survey_wise_notes, datatype: string}
+# - {name: survey_wise_references, datatype: string}
+# - {name: survey_herschel_status, datatype: string}
+# - {name: survey_herschel_instrument, datatype: string}
+# - {name: survey_herschel_notes, datatype: string}
+# - {name: survey_herschel_references, datatype: string}
+# - {name: survey_alma_status, datatype: string}
+# - {name: survey_alma_instrument, datatype: string}
+# - {name: survey_alma_notes, datatype: string}
+# - {name: survey_alma_references, datatype: string}
+# - {name: survey_otherco_status, datatype: string}
+# - {name: survey_otherco_instrument, datatype: string}
+# - {name: survey_otherco_notes, datatype: string}
+# - {name: survey_otherco_references, datatype: string}
+# - {name: survey_hiresco_status, datatype: string}
+# - {name: survey_hiresco_instrument, datatype: string}
+# - {name: survey_hiresco_notes, datatype: string}
+# - {name: survey_hiresco_references, datatype: string}
+# - {name: survey_multijco_status, datatype: string}
+# - {name: survey_multijco_instrument, datatype: string}
+# - {name: survey_multijco_notes, datatype: string}
+# - {name: survey_multijco_references, datatype: string}
+# - {name: survey_dense_status, datatype: string}
+# - {name: survey_dense_instrument, datatype: string}
+# - {name: survey_dense_notes, datatype: string}
+# - {name: survey_dense_references, datatype: string}
+# - {name: survey_hi_status, datatype: string}
+# - {name: survey_hi_instrument, datatype: string}
+# - {name: survey_hi_notes, datatype: string}
+# - {name: survey_hi_references, datatype: string}
+# - {name: orient_ra, unit: deg, datatype: float32}
+# - {name: orient_ra_unc, unit: arcsec, datatype: float32}
+# - {name: orient_dec, unit: deg, datatype: float32}
+# - {name: orient_dec_unc, unit: arcsec, datatype: float32}
+# - {name: orient_pos_ref, datatype: string}
+# - {name: orient_vlsr, unit: km / s, datatype: float32}
+# - {name: orient_vlsr_unc, unit: km / s, datatype: float32}
+# - {name: orient_vlsr_ref, datatype: string}
+# - {name: orient_incl, unit: deg, datatype: float32}
+# - {name: orient_incl_unc, unit: deg, datatype: float32}
+# - {name: orient_posang, unit: deg, datatype: float32}
+# - {name: orient_posang_unc, unit: deg, datatype: float32}
+# - {name: orient_ref, datatype: string}
+# - {name: rotcur_v0, unit: km / s, datatype: float32}
+# - {name: rotcur_v0_unc, unit: km / s, datatype: float32}
+# - {name: rotcur_rt, unit: arcsec, datatype: float32}
+# - {name: rotcur_rt_unc, unit: arcsec, datatype: float32}
+# - {name: rotcur_ref, datatype: string}
+# - {name: dist, unit: Mpc, datatype: float32}
+# - {name: dist_unc, unit: dex, datatype: float32}
+# - {name: dist_label, datatype: string}
+# - {name: dist_ref, datatype: string}
+# - {name: size_r90, unit: arcsec, datatype: float32}
+# - {name: size_r90_unc, unit: arcsec, datatype: float32}
+# - {name: size_r90_ref, datatype: string}
+# - {name: mwext_sfd98, unit: mag, datatype: float64}
+# - {name: mwext_sfd98_unc, unit: mag, datatype: float64}
+# - {name: mwext_sf11, unit: mag, datatype: float64}
+# - {name: mwext_sf11_unc, unit: mag, datatype: float64}
+# - {name: z0mgs_mtol, unit: solMass / solLum, datatype: float64}
+# - {name: props_mtol_method, datatype: string}
+# - {name: props_sfr, unit: solMass / yr, datatype: float32}
+# - {name: props_sfr_unc, unit: solMass / yr, datatype: float32}
+# - {name: props_sfr_method, datatype: string}
+# - {name: props_mstar, unit: solMass, datatype: float32}
+# - {name: props_mstar_unc, unit: solMass, datatype: float32}
+# - {name: props_mtol, datatype: float32}
+# - {name: props_deltams, datatype: float32}
+# - {name: props_deltams_unc, datatype: float32}
+# - {name: props_mhi, unit: solMass, datatype: float32}
+# - {name: props_mhi_unc, unit: solMass, datatype: float32}
+# - {name: lco_phangs, unit: pc2 K km / s, datatype: float32}
+# - {name: lco_phangs_unc, unit: pc2 K km / s, datatype: float32}
+# - {name: appcor_phangs, datatype: float32}
+# - {name: aco10_phangs, unit: s solMass / (K km pc2), datatype: float32}
+# - {name: size_r25, unit: arcsec, datatype: float32}
+# - {name: size_r25_unc, unit: arcsec, datatype: float32}
+# - {name: size_reff, unit: arcsec, datatype: float32}
+# - {name: size_reff_unc, unit: arcsec, datatype: float32}
+# - {name: size_scalelength, unit: arcsec, datatype: float32}
+# - {name: size_scalelength_unc, unit: arcsec, datatype: float32}
+# - {name: mh2_phangs, unit: solMass, datatype: float32}
+# - {name: mh2_phangs_unc, unit: solMass, datatype: float32}
+# - {name: morph_t, datatype: float64}
+# - {name: morph_t_unc, datatype: float64}
+# - {name: morph_string, datatype: string}
+# - {name: morph_bar, datatype: string}
+# - {name: morph_buta15, datatype: string}
+# - {name: morph_class, datatype: string}
+# - {name: morph_gold, datatype: float64}
+# - {name: morph_bar_flag, datatype: float64}
+# - {name: morph_bar_axis_ratio, datatype: float64}
+# - {name: morph_bar_pa, unit: deg, datatype: float64}
+# - {name: morph_bar_r, unit: arcsec, datatype: float64}
+# - {name: morph_bar_red, datatype: float64}
+# - {name: morph_bar_q_flag, datatype: float64}
+# - {name: morph_nuclear_bar_axis_ratio, datatype: float64}
+# - {name: morph_nuclear_bar_pa, unit: deg, datatype: float64}
+# - {name: morph_nuclear_bar_r, unit: arcsec, datatype: float64}
+# - {name: morph_spiral_arms, datatype: float64}
+# - {name: morph_multi_arm, datatype: float64}
+# - {name: morph_featureless, datatype: float64}
+# - {name: morph_disk_1_axis_ratio, datatype: float64}
+# - {name: morph_disk_1_pa, unit: deg, datatype: float64}
+# - {name: morph_disk_1_r, unit: arcsec, datatype: float64}
+# - {name: morph_disk_2_axis_ratio, datatype: float64}
+# - {name: morph_disk_2_pa, unit: deg, datatype: float64}
+# - {name: morph_disk_2_r, unit: arcsec, datatype: float64}
+# - {name: morph_bulge_axis_ratio, datatype: float64}
+# - {name: morph_bulge_pa, unit: deg, datatype: float64}
+# - {name: morph_bulge_r, unit: arcsec, datatype: float64}
+# - {name: morph_rings_outer, datatype: float64}
+# - {name: morph_ring_inner, datatype: float64}
+# - {name: morph_lens_1_axis_ratio, datatype: float64}
+# - {name: morph_lens_1_pa, unit: deg, datatype: float64}
+# - {name: morph_lens_1_r, unit: arcsec, datatype: float64}
+# - {name: morph_lens_2_axis_ratio, datatype: float64}
+# - {name: morph_lens_2_pa, unit: deg, datatype: float64}
+# - {name: morph_lens_2_r, unit: arcsec, datatype: float64}
+# - {name: morph_ring_1_axis_ratio, datatype: float64}
+# - {name: morph_ring_1_pa, unit: deg, datatype: float64}
+# - {name: morph_ring_1_r, unit: arcsec, datatype: float64}
+# - {name: morph_ring_2_axis_ratio, datatype: float64}
+# - {name: morph_ring_2_pa, unit: deg, datatype: float64}
+# - {name: morph_ring_2_r, unit: arcsec, datatype: float64}
+# - {name: morph_vcc, datatype: float64}
+# - {name: morph_interacting, datatype: float64}
+# - {name: morph_in_virgo_fornax, datatype: float64}
+# - {name: morph_high_peculiar, datatype: float64}
+# - {name: morph_comments, datatype: string}
+# - {name: agn_veron_y_n, datatype: string}
+# - {name: agn_veron_class, datatype: string}
+# - {name: agn_milliquas_y_n, datatype: string}
+# - {name: agn_milliquas_class_pQSO, datatype: string}
+# - {name: dist_v1p2, unit: Mpc, datatype: float32}
+# - {name: morph_in_cluster, datatype: string}
+# - {name: morph_in_group, datatype: string}
+# - {name: data_noise_150pc, unit: K, datatype: float64, format: .4g}
+# - {name: data_fracF_strict_150pc, datatype: float64, format: .4g}
+# - {name: data_chan_corr_150pc, datatype: float64, format: .4g}
+# - {name: data_ang_res_150pc, unit: arcsec, datatype: float64, format: .4g}
+# - {name: data_lin_res_150pc, unit: pc, datatype: float64, format: .4g}
+# - {name: data_has_megatable, datatype: bool}
+# meta: !!omap
+# - {comments: modified from v1p6 sample table; added cluster/group membership and CO data info}
+# schema: astropy-2.0
+name pgc alias survey_astrosat_status survey_astrosat_instrument survey_astrosat_notes survey_astrosat_references survey_galex_status survey_galex_instrument survey_galex_notes survey_galex_references survey_halpha_status survey_halpha_instrument survey_halpha_notes survey_halpha_references survey_muse_status survey_muse_instrument survey_muse_notes survey_muse_references survey_kcwi_status survey_kcwi_instrument survey_kcwi_notes survey_kcwi_references survey_sitelle_status survey_sitelle_instrument survey_sitelle_notes survey_sitelle_references survey_typhoon_status survey_typhoon_instrument survey_typhoon_notes survey_typhoon_references survey_hst_status survey_hst_instrument survey_hst_notes survey_hst_references survey_irac_status survey_irac_instrument survey_irac_notes survey_irac_references survey_mips_status survey_mips_instrument survey_mips_notes survey_mips_references survey_wise_status survey_wise_instrument survey_wise_notes survey_wise_references survey_herschel_status survey_herschel_instrument survey_herschel_notes survey_herschel_references survey_alma_status survey_alma_instrument survey_alma_notes survey_alma_references survey_otherco_status survey_otherco_instrument survey_otherco_notes survey_otherco_references survey_hiresco_status survey_hiresco_instrument survey_hiresco_notes survey_hiresco_references survey_multijco_status survey_multijco_instrument survey_multijco_notes survey_multijco_references survey_dense_status survey_dense_instrument survey_dense_notes survey_dense_references survey_hi_status survey_hi_instrument survey_hi_notes survey_hi_references orient_ra orient_ra_unc orient_dec orient_dec_unc orient_pos_ref orient_vlsr orient_vlsr_unc orient_vlsr_ref orient_incl orient_incl_unc orient_posang orient_posang_unc orient_ref rotcur_v0 rotcur_v0_unc rotcur_rt rotcur_rt_unc rotcur_ref dist dist_unc dist_label dist_ref size_r90 size_r90_unc size_r90_ref mwext_sfd98 mwext_sfd98_unc mwext_sf11 mwext_sf11_unc z0mgs_mtol props_mtol_method props_sfr props_sfr_unc props_sfr_method props_mstar props_mstar_unc props_mtol props_deltams props_deltams_unc props_mhi props_mhi_unc lco_phangs lco_phangs_unc appcor_phangs aco10_phangs size_r25 size_r25_unc size_reff size_reff_unc size_scalelength size_scalelength_unc mh2_phangs mh2_phangs_unc morph_t morph_t_unc morph_string morph_bar morph_buta15 morph_class morph_gold morph_bar_flag morph_bar_axis_ratio morph_bar_pa morph_bar_r morph_bar_red morph_bar_q_flag morph_nuclear_bar_axis_ratio morph_nuclear_bar_pa morph_nuclear_bar_r morph_spiral_arms morph_multi_arm morph_featureless morph_disk_1_axis_ratio morph_disk_1_pa morph_disk_1_r morph_disk_2_axis_ratio morph_disk_2_pa morph_disk_2_r morph_bulge_axis_ratio morph_bulge_pa morph_bulge_r morph_rings_outer morph_ring_inner morph_lens_1_axis_ratio morph_lens_1_pa morph_lens_1_r morph_lens_2_axis_ratio morph_lens_2_pa morph_lens_2_r morph_ring_1_axis_ratio morph_ring_1_pa morph_ring_1_r morph_ring_2_axis_ratio morph_ring_2_pa morph_ring_2_r morph_vcc morph_interacting morph_in_virgo_fornax morph_high_peculiar morph_comments agn_veron_y_n agn_veron_class agn_milliquas_y_n agn_milliquas_class_pQSO dist_v1p2 morph_in_cluster morph_in_group data_noise_150pc data_fracF_strict_150pc data_chan_corr_150pc data_ang_res_150pc data_lin_res_150pc data_has_megatable
+ic1954 13090 2masxj03313139-5154175;agc022666;eso200-036;esolv2000360;hipassj0331-51;ic1954;iras03300-5204;iras03301-5204;lgg093:[g93]002;pgc013090;pgc13090 awarded_not_observed "" "" "" released NUV;FUV "" 2019ApJS..244...24L released "Direct CCD" "" "" not_in_survey "" "" "" cannot_be_observed "" "" "" cannot_be_observed "" "" "" not_in_survey "" "" "" awarded_not_observed "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L not_in_survey "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" awarded_not_observed MeerKAT MHONGOOSE "" 52.879707 1.0 -51.90486 1.0 2015ApJS..219....4S 1039.1177 5.0 LANGMEIDT19 57.1 0.7 63.4 0.2 LANGMEIDT19 137.0 2.5 9.363337 0.94990367 LANGMEIDT19 12.8 0.068 NAM+TF 2016AJ....152...50T+2017ApJ...850..207S+2020AJ....159...67K 78.265945 nan FIT_TO_MAJORAXIS 0.0163 0.0001 0.014 0.0001 0.34475427865982056 SSFRLIKE 0.36467403 0.094423376 FUVW4 4665490400.0 1208014000.0 0.33224937 -0.042945255 0.011119617 702961600.0 182014620.0 62278324.0 583283.1 1.089891 5.134452 89.76793 23.243198 39.294277 10.174287 24.767912 6.4130416 536167800.0 5021612.5 3.299999952316284 0.8999999761581421 Sb BAR SB(r_s)cd M 0.0 1.0 2.476 90.0 6.5 3.0 2.0 nan nan nan 0.0 1.0 0.0 1.786 61.0 39.629 nan nan nan nan nan nan 0.0 0.0 nan nan nan nan nan nan nan nan nan nan nan nan 0.0 0.0 0.0 0.0 "" 0 "" 0 "" 15.2 "" "" 0.02677 0.7071 0.06252 2.417 150.0 True
+ngc1512 14391 2masxj04035428-4320558;agc023162;eso250-004;esolv2500040;hipassj0403-43;iras04022-4329;lgg108:[g93]003;mcg-07-09-007;ngc1512;pgc014391;pgc14391 observed_not_released "" "" "" released NUV;FUV "" 2019ApJS..244...24L released WFI "" "" released "" "" "" not_in_survey "" "" "" cannot_be_observed "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L released "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" observed_not_released "ALMA Band 7 0.2"" center; Band 6 0.25"" center" "2019.1.01718.S (PI M. Chevance); 2019.1.00876.S (PI E. Schinnerer)" "" not_in_survey "" "" "" not_in_survey "" "" "" observed_not_released VLA archival VLA:AT285;VLA:AT286 60.975574 1.0 -43.348724 1.0 2015ApJS..219....4S 871.42554 5.0 LANGMEIDT19 42.5 6.0 261.9 4.2 LANGMEIDT19 180.9 271.0 1.9644268 0.4911067 LANGMEIDT19 18.83 0.041 PNLF PHANGSPNLF 162.77306 nan FIT_TO_MAJORAXIS 0.0106 0.0001 0.0091 0.0001 0.4969700872898102 SSFRLIKE 1.2784876 0.3310329 FUVW4 51612670000.0 13363832000.0 0.47948754 -0.20797773 0.053850718 7582501000.0 1963302100.0 185714800.0 2519680.5 1.4049842 3.3084052 253.00044 65.50824 52.125713 13.496672 67.59612 17.502354 1328077200.0 18018652.0 1.2000000476837158 0.5 Sa BAR (R_L)SB(r_bl_nr)a G 1.0 1.0 2.941 42.0 71.4 1.0 1.0 nan nan nan 1.0 0.0 0.0 1.361 74.5 78.421 nan nan nan 1.192 70.5 5.8 1.0 1.0 1.562 48.0 45.9 nan nan nan 1.235 84.0 8.2 1.299 51.0 69.6 0.0 1.0 0.0 0.0 "has dwarf companion" 0 "" 0 "" 16.8 "" NGC1433 0.06955 0.5306 0.06284 1.643 150.0 True
+ngc1566 14897 2masxj04200041-5456161;agc023373;dorado_group:[fs90]053;eso157-020;esolv1570200;hipassj0419-54;iras04188-5503;iras04189-5503;lgg114:[g93]003;ngc1566;pgc014897;pgc14897;[bfk2006]gems-n1566-10 observed_not_released "" "" "" released NUV;FUV "" 2019ApJS..244...24L released WFI "" "" released "" "" "" not_in_survey "" "" "" cannot_be_observed "" "" "" not_in_survey "" "" "" observed_not_released "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L released "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" released ALMA7m+TP "ALMA beta" "" observed_not_released "ASKAP & MeerKAT" "WALLABY & MHONGOOSE" 2019MNRAS.487.2797E 65.00159 1.0 -54.93801 1.0 2015ApJS..219....4S 1483.2677 5.0 LANGMEIDT19 29.5 10.6 214.7 4.1 LANGMEIDT19 217.0 42.0 0.0 0.80214095 LANGMEIDT19 17.69 0.047 Group 2017ApJ...843...16K 155.83667 nan FIT_TO_MAJORAXIS 0.0092 0.0003 0.0079 0.0002 0.3185947835445404 SSFRLIKE 4.5375185 1.1748788 FUVW4 60853970000.0 15756639000.0 0.35844553 0.29350203 0.07599513 6373343000.0 1650220500.0 775691100.0 1848177.5 1.2006594 3.5262315 216.83093 56.143036 36.968307 9.572034 45.279243 11.723947 5052498000.0 12038184.0 4.0 0.20000000298023224 SABb BAR (R_1_')SAB(rs_r_s)b G 1.0 1.0 2.0 177.0 35.8 1.0 1.0 nan nan nan 1.0 0.0 0.0 1.282 156.7 28.593 1.182 85.9 220.048 nan nan nan 0.0 1.0 nan nan nan nan nan nan nan nan nan nan nan nan 0.0 0.5 0.0 1.0 "nearby galaxies, unclear if two bars" 1 S1.5 1 "ARX, 98%" 18.0 "" NGC1566 0.06399 0.9229 0.06011 1.749 150.0 True
+ngc1672 15941 2masxj04454255-5914506;2masxj04454255-5914507;eso118-043;esolv1180430;hipassj0445-59;iras04449-5920;lgg119:[g93]002;ngc1672;pgc015941;pgc15941;vv826 not_in_survey "" "" "" released NUV;FUV "" 2019ApJS..244...24L released WFI "" "" released "" "" "" not_in_survey "" "" "" cannot_be_observed "" "" "" not_in_survey "" "" "" observed_not_released "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L not_in_survey "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" observed_not_released "ALMA Band 7 0.2"" center" "2019.1.01718.S (PI M. Chevance);" "" not_in_survey "" "" "" released ALMA7m+TP "ALMA beta" "" awarded_not_observed MeerKAT MHONGOOSE "" 71.42704 1.0 -59.247257 1.0 2015ApJS..219....4S 1318.2584 5.0 LANGMEIDT19 42.6 12.9 134.3 0.4 LANGMEIDT19 162.6 18.1 21.49314 2.4266448 LANGMEIDT19 19.4 0.061 NAM 2017ApJ...850..207S+2020AJ....159...67K 154.286 nan FIT_TO_MAJORAXIS 0.0233 0.0004 0.0201 0.0003 0.258768767118454 SSFRLIKE 7.603967 1.9688603 FUVW4 53613490000.0 13881895000.0 0.28270346 0.55513394 0.14373828 16044092000.0 4154223000.0 1180307300.0 3944469.0 1.2067251 3.3049264 184.55309 47.785484 36.080307 9.342108 61.789867 15.998966 7241890000.0 24201672.0 3.299999952316284 0.6000000238418579 Sb BAR (R')SA_B(rs_nr)b G 1.0 1.0 3.03 96.0 74.4 1.0 1.0 nan nan nan 1.0 0.0 0.0 1.119 148.5 100.493 nan nan nan 1.183 132.8 4.9 0.0 1.0 nan nan nan nan nan nan 1.25 120.0 6.6 nan nan nan 0.0 0.5 0.0 0.0 "unclear if in group" 1 S 1 "ARX, 94%" 11.9 "" NGC1672 "" "" "" "" "" True
+ngc3511 33385 2masxj11032376-2305124;6dfj1103238-230512;agc027671;eso502-013;esolv5020130;flashj110323.69-230510.6;hipassj1103-23;iras11009-2248;iras11009-2249;mcg-04-26-020;ngc3511;pgc033385;pgc33385;ugca223 observed_not_released "" "" "" released NUV;FUV "" 2019ApJS..244...24L released WFI "" "" not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L not_in_survey "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" released "VLA & MeerKAT" "PHANGS & MHONGOOSE" Utomo_etal_in_prep 165.84921 1.0 -23.086714 1.0 2015ApJS..219....4S 1096.725 5.0 LANGMEIDT19 75.1 2.2 256.8 0.8 LANGMEIDT19 133.1 4.7 6.840944 2.4876158 LANGMEIDT19 13.94 0.061 NAM 2017ApJ...850..207S+2020AJ....159...67K 137.75739 nan FIT_TO_MAJORAXIS 0.0674 0.0011 0.058 0.0009 0.3318428099155426 SSFRLIKE 0.8121123 0.2102765 FUVW4 10723620000.0 2776617700.0 0.33076292 0.058983974 0.01527245 2317594600.0 600084160.0 141891870.0 933737.0 1.0594683 4.70049 181.1846 46.913296 65.1526 16.869665 35.415092 9.1698675 1087114500.0 7153891.0 5.099999904632568 0.4000000059604645 SABc BAR SAB(s)cd M 0.0 1.0 2.0 70.0 18.8 1.0 2.0 nan nan nan 0.0 1.0 0.0 2.618 78.4 63.373 nan nan nan nan nan nan 0.0 0.0 nan nan nan nan nan nan nan nan nan nan nan nan 0.0 1.0 0.0 0.0 "nearby companion, in group" 0 "" 0 "" 9.95 "" "" 0.0335 0.7752 0.0676 2.219 150.0 True
+ngc4535 41812 2masxj12342031+0811519;agc007727;cgcg042-159;evcc0892;hipassj1234+08;iras12317+0828;iras12318+0828;lgg296:[g93]003;mcg+01-32-104;ngc4535;pgc041812;pgc41812;sdssj123420.28+081152.7;ugc07727;ugc7727;uzc123148+08280;vcc1555 not_in_survey "" "" "" released NUV;FUV "" 2019ApJS..244...24L released WFI "" "" released "" "" "" not_in_survey "" "" "" awarded_not_observed PHANGS "[OII] only" "" not_in_survey "" "" "" observed_not_released "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L not_in_survey "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" released ALMA7m+TP "ALMA beta. TP delivered but not processed yet." "" released VLA VIVA 2009AJ....138.1741C 188.5846 1.0 8.197973 1.0 2015ApJS..219....4S 1953.6008 5.0 LANGMEIDT19 44.7 10.8 179.7 1.6 LANGMEIDT19 237.4 36.6 34.333954 2.3498523 LANGMEIDT19 15.77 0.01 Cepheid 2001ApJ...553...47F 174.51205 nan FIT_TO_MAJORAXIS 0.0195 0.0003 0.0168 0.0003 0.3593090772628784 SSFRLIKE 2.161266 0.55960673 FUVW4 33959197000.0 8792899000.0 0.3654908 0.14365728 0.03719652 3655740700.0 946564160.0 444457920.0 2463795.5 1.5219227 3.8325942 244.4113 63.284294 81.828415 21.187456 49.15226 12.7267685 3988436700.0 22109388.0 5.0 0.4000000059604645 Sc BAR SAB(s)c M 1.0 1.0 3.125 42.0 37.6 1.0 1.0 nan nan nan 0.0 1.0 0.0 1.109 22.8 95.31 nan nan nan 1.311 22.2 1.5 0.0 0.0 nan nan nan nan nan nan nan nan nan nan nan nan 0.0 0.5 1.0 0.0 "in Virgo" 0 "" 0 "" 15.8 Virgo "" 0.06046 0.6693 0.05998 1.962 150.0 True
+ngc5068 46400 2masxj13185480-2102207;eso576-029;esolv5760290;hipassj1318-21;iras13161-2046;iras13162-2046;mcg-03-34-046;ngc5068;pgc046400;pgc169702;pgc46400;ugca345 not_in_survey "" "" "" released NUV;FUV "" 2019ApJS..244...24L released WFI "" "" released "" "" "" not_in_survey "" "" "" observed_not_released SIGNALS "" "" observed_not_released "directCCD/du Pont" "" "" awarded_not_observed "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L not_in_survey "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" not_in_survey "" "" "" released "VLA & MeerKAT" "PHANGS & MHONGOOSE" Utomo_etal_in_prep 199.72807 1.0 -21.038744 1.0 2015ApJS..219....4S 667.21063 5.0 LANGMEIDT19 35.7 10.9 342.4 3.2 LANGMEIDT19 nan nan nan nan LANGMEIDT19 5.2 0.018 TRGB PHANGSTRGB 178.7597 nan FIT_TO_MAJORAXIS 0.1042 0.0032 0.0896 0.0027 0.29429686069488525 SSFRLIKE 0.27566087 0.0713756 FUVW4 2517960700.0 651964000.0 0.28356045 0.017661925 0.004573121 662092540.0 171432580.0 20396002.0 209246.34 1.2555236 6.609208 224.45084 58.116024 77.96596 20.187366 50.32607 13.030698 260379040.0 2671276.5 6.0 0.4000000059604645 Sc BAR SB(s)d F 1.0 1.0 2.041 153.0 34.9 1.0 2.0 nan nan nan 0.0 0.0 1.0 1.027 99.1 99.824 nan nan nan nan nan nan 0.0 0.0 nan nan nan nan nan nan nan nan nan nan nan nan 0.0 0.5 0.0 0.0 "" 0 "" 0 "" 5.16 "" "" 0.03801 0.4648 0.3047 5.95 150.0 True
+ngc7496 70588 2masxj23094729-4325408;6dfj2309473-432541;eso291-001;esolv2910010;hipassj2309-43;iras23069-4341;iras23069-4342;lgg472:[g93]001;mcg-07-47-020;ngc7496;pgc070588;pgc548857;pgc70588;vv771 not_in_survey "" "" "" released NUV;FUV "" 2019ApJS..244...24L released "Direct CCD" "" "" released "" "" "" not_in_survey "" "" "" cannot_be_observed "" "" "" not_in_survey "" "" "" awarded_not_observed "" "" "" released "" "" "" not_in_survey "" "" "" released W1;W2;W3;W4 "" 2019ApJS..244...24L;2014AJ....147..108L not_in_survey "" "" "" released 12m;7m;tp "" LeroyEtAlInPrep not_in_survey "" "" "" observed_not_released "ALMA Band 6 0.34"" center" "2018.1.00236.S (PI M. Malkan)" "" not_in_survey "" "" "" released ALMA7m+TP "ALMA beta" "" not_in_survey "" "" "" 347.44702 1.0 -43.42785 1.0 2015ApJS..219....4S 1639.1636 5.0 LANGMEIDT19 35.9 6.0 193.7 4.2 LANGMEIDT19 158.0 41.2 22.611916 1.1030203 LANGMEIDT19 18.72 0.061 NAM 2017ApJ...850..207S+2020AJ....159...67K 80.800934 nan FIT_TO_MAJORAXIS 0.0098 0.0001 0.0084 0.0001 0.20485009253025055 SSFRLIKE 2.2598362 0.585129 FUVW4 9922493000.0 2569185500.0 0.27821365 0.5263749 0.13629183 1184468400.0 306688960.0 218144780.0 1434154.4 1.1229919 4.8097887 100.48963 26.01932 41.719646 10.802277 16.938438 4.3857923 1812734100.0 11917500.0 3.200000047683716 0.6000000238418579 Sb BAR (R')SB_x_(rs)b G 0.0 1.0 4.167 147.0 37.6 1.0 1.0 nan nan nan 1.0 1.0 0.0 1.043 33.2 48.658 nan nan nan nan nan nan 0.0 0.0 nan nan nan nan nan nan nan nan nan nan nan nan 0.0 0.0 0.0 0.0 "spiral arms outside bar are not in environmental mask" 1 S2 1 "NR, 57%" 18.7 "" "" 0.03555 0.7331 0.06011 1.675 152.0 True
